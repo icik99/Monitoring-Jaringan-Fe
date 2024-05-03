@@ -1,6 +1,4 @@
-"use client"
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 
 import { ColumnDef } from "@tanstack/react-table"
 import { MoreHorizontal } from "lucide-react"
@@ -8,20 +6,11 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import DataTable from '../../components/Tabel/dataTableAksesPoin';
+import DataTable from '../../components/Tabel';
 import { Button } from '@/components/ui/button';
 
-async function getDataRouter(): Promise<DataRouter[]> {
-    const res = await fetch(
-        'https://662d2f180547cdcde9e029ab.mockapi.io/monitoring'
-    );
-    const data = await res.json();
-    return data;
-}
  type DataRouter = {
     id: string
     mac: string
@@ -31,42 +20,50 @@ async function getDataRouter(): Promise<DataRouter[]> {
   
   
   export default function AksesPoin() {
-      const [data, setData] = useState<DataRouter[]>([]);
-      const columns: ColumnDef<DataRouter>[] = [
-       {
-         accessorKey: "id",
-         header: "ID",
-       },
-       {
-         accessorKey: "ssid",
-         header: "SSID",
-       },
-       {
-         accessorKey: "presentaseKekuranganSinyal",
-         header: "Persentase Kekuatan Sinyal",
-       },
-       {
-         id: "Actions",
-         cell: ({row}) => {
-           const payment = row.original
-           return (
-             <DropdownMenu>
-               <DropdownMenuTrigger asChild>
-                 <Button variant="ghost" className="h-8 w-8 p-0">
-                   <span className="sr-only">Open menu</span>
-                   <MoreHorizontal className="h-4 w-4" />
-                 </Button>
-               </DropdownMenuTrigger>
-               <DropdownMenuContent align="end">
-                 <DropdownMenuItem>Edit</DropdownMenuItem>
-                 <DropdownMenuItem>Delete</DropdownMenuItem>
-               </DropdownMenuContent>
-             </DropdownMenu>
-           )
-         }
-     
-       },
-     ]
+    const [data, setData] = useState<DataRouter[]>([]);
+    const columns: ColumnDef<DataRouter>[] = [
+    {
+        accessorKey: "id",
+        header: "ID",
+    },
+    {
+        accessorKey: "ssid",
+        header: "SSID",
+    },
+    {
+        accessorKey: "presentaseKekuranganSinyal",
+        header: "Persentase Kekuatan Sinyal",
+    },
+    {
+        id: "Actions",
+        cell: ({row}) => {
+        const payment = row.original
+        return (
+            <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                <span className="sr-only">Open menu</span>
+                <MoreHorizontal className="h-4 w-4" />
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+                <DropdownMenuItem>Edit</DropdownMenuItem>
+                <DropdownMenuItem>Delete</DropdownMenuItem>
+            </DropdownMenuContent>
+            </DropdownMenu>
+        )
+        }
+    
+    },
+    ]
+
+    async function getDataRouter(): Promise<DataRouter[]> {
+        const res = await fetch(
+            'https://662d2f180547cdcde9e029ab.mockapi.io/monitoring'
+        );
+        const data = await res.json();
+        return data;
+    }
 
     useEffect(() => {
         const fetchData = async () => {

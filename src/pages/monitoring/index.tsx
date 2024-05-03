@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from '@/components/ui/button';
-import DataTable from '../../components/Tabel/dataTableMonitoring';
+import DataTable from '../../components/Tabel';
 
 async function getDataRouter(): Promise<DataRouter[]> {
     const res = await fetch(
