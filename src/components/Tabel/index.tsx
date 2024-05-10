@@ -9,7 +9,6 @@ import {
   ColumnFiltersState,
   getFilteredRowModel
 } from "@tanstack/react-table"
-
 import {
   Table,
   TableBody,
@@ -18,16 +17,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { DataTablePagination } from "@/components/TablePagination"
-import { Skeleton } from "@/components/ui/skeleton"
-
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
-
 export default function DataTable<TData, TValue>({
   columns,
   data,
