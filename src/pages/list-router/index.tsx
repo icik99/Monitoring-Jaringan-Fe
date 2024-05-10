@@ -208,8 +208,8 @@ export default function RouterPage() {
 
     return (
         <>
-            <div className='p-10'>
-                <div className='mt-10'>
+            <div>
+                <div>
                     <div className='flex items-center justify-between'>
                         <h1 className='mb-6 text-5xl font-bold'>Data Router</h1>
                         <Dialog>

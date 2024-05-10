@@ -97,9 +97,9 @@ export default function Monitoring() {
     }, []);
 
     return (
-        <div className='p-10'>
+        <div>
             <div className=''>
-                <h1 className='mb-6 text-5xl font-bold'>Monitoring Jaringan</h1>
+                <h1 className='mb-6 text-5xl font-bold'>Hasil Monitoring Jaringan</h1>
                 <DataTable columns={columns} data={data} />
             </div>
         </div>

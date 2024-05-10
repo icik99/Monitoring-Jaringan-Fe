@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
     mac: string
     ssid: string
     password: string
+    userTerhubung: string
   }
   
   
@@ -33,6 +34,15 @@ import { Button } from '@/components/ui/button';
     {
         accessorKey: "presentaseKekuranganSinyal",
         header: "Persentase Kekuatan Sinyal",
+    },
+    {
+        accessorKey: "userTerhubung",
+        cell: ({row}) => {
+            return(
+                <div>{row.original.userTerhubung}</div>
+            );
+        },
+        header: "User Terhubung",
     },
     {
         id: "Actions",
@@ -79,7 +89,7 @@ import { Button } from '@/components/ui/button';
     }, []);
 
     return (
-        <div className='p-10'>
+        <div>
             <div className=''>
                 <h1 className='mb-6 text-5xl font-bold'>Akses Poin</h1>
                 <DataTable columns={columns} data={data} />

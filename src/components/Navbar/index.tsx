@@ -9,6 +9,8 @@ import {
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { toast } from '../ui/use-toast';
+import Image from 'next/image';
+import Logo from '../../../public/logo.png'
 
 export default function Navbar() {
     const router = useRouter();
@@ -20,10 +22,13 @@ export default function Navbar() {
           })
     }
   return (
-    <div className='border-b-2 w-full p-2'>
+    <div className='border-b-2 w-full px-8 py-6 bg-[#b6252a]'>
         <div className='flex items-center justify-between'>
+            <div>
+                <Image src={Logo} alt='Logo' width={100} height={100}/>
+            </div>
             <NavigationMenu>
-                    <NavigationMenuList>
+                    <NavigationMenuList className='space-x-4'>
                         <NavigationMenuItem>
                         <Link href="/dashboard" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -31,7 +36,7 @@ export default function Navbar() {
                             </NavigationMenuLink>
                         </Link>
                         </NavigationMenuItem>
-                        <NavigationMenuItem>
+                        <NavigationMenuItem className='space-x-4'>
                         <Link href="/akses-poin" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                 <div className='text-md'>Akses Poin Tersedia</div>

@@ -17,6 +17,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import { useRouter } from "next/router"
+import Image from "next/image"
+import Logo from '../../../../public/logo.png'
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -48,9 +50,12 @@ export default function Page() {
 
   return (
     <>
-    <div className="flex items-center justify-center h-screen p-64">
-        <div className="border p-9 rounded-lg w-full shadow-lg">
-          <h1 className="text-4xl font-bold text-center mb-10">Web Monitoring Jaringan</h1>
+    <div className="flex items-center justify-center h-screen p-64 bg-[#b6252a]">
+        <div className="border p-9 rounded-lg w-full shadow-lg bg-white">
+          <div className="flex items-center justify-center gap-5">
+            <Image src={Logo} alt="Logo" width={120} height={120} className="bg-red-500 p-2 rounded-lg"/>
+            <h1 className="text-4xl font-bold">Web Monitoring Jaringan</h1>
+          </div>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                     <FormField control={form.control} name="username"

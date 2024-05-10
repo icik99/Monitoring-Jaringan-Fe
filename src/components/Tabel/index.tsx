@@ -48,7 +48,7 @@ export default function DataTable<TData, TValue>({
   })
 
   return (
-    <div className="border rounded-lg shadow-lg p-7">
+    <div className="border rounded-lg shadow-lg p-7 bg-white">
       <div className="flex items-center py-4">
         <Input
           placeholder="Search Access Point (SSID)..."
@@ -59,7 +59,7 @@ export default function DataTable<TData, TValue>({
           className="max-w-sm"
         />
       </div>
-      <div className="rounded-md border mb-6">
+      <div className="rounded-md border mb-6 ">
         <Table>
           <TableHeader >
             {table.getHeaderGroups().map((headerGroup) => (
