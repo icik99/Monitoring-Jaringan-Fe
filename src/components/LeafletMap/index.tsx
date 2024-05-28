@@ -5,7 +5,7 @@ import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 
 const LeafletMap: React.FC = () => {
-  const position: [number, number] = [-6.972972907083351, 107.63167342171448];
+  const position: [number, number] = [-6.971720250604408, 107.63241608688661];
 
   return (
     <div>
