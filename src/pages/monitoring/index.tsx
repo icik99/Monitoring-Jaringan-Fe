@@ -12,6 +12,11 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from '@/components/ui/button';
 import DataTable from '../../components/Tabel';
+import Image from 'next/image';
+import PingMonitoring from '../../../public/pingMonitoring.png'
+import BandwithMonitoring from '../../../public/bandwithMonitoring.png'
+import JitterMonitoring from '../../../public/jitterMonitoring.png'
+
 
 async function getDataRouter(): Promise<DataRouter[]> {
     const res = await fetch(
@@ -97,10 +102,29 @@ export default function Monitoring() {
     }, []);
 
     return (
-        <div>
+        <div className='space-y-11'>
             <div className=''>
                 <h1 className='mb-6 text-5xl font-bold'>Hasil Monitoring Jaringan</h1>
                 <DataTable columns={columns} data={data} />
+            </div>
+            <div className='bg-white rounded-xl p-5 shadow-lg'>
+
+              <div className='flex items-start '>
+                <div className='border-r'>
+                  <h1 className='mb-6 text-5xl font-bold border-b pb-2 text-center'>Hasil Ping</h1>
+
+                  <Image className='w-[90%] h-[90%]' src={PingMonitoring} alt='Ping Monitoring' />
+                </div>
+                <div>
+                <h1 className='mb-6 text-5xl font-bold pb-2 border-b text-center'>Hasil Jitter</h1>
+
+                <Image className='w-[90%] h-[90%]' src={JitterMonitoring} alt='Jitter Monitoring' />
+                </div>
+              </div>
+              <div className='mt-10'>
+                <h1 className='mb-6 text-5xl font-bold border-b pb-2 text-center'>Hasil Bandwith</h1>
+                <Image src={BandwithMonitoring} alt='Bandwith Monitoring' />
+              </div>
             </div>
         </div>
     );

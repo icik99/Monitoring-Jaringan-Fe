@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { MdRouter, MdWifi } from "react-icons/md";
 import { FaUserFriends } from "react-icons/fa";
+import LeafletMap from '@/components/LeafletMap';
+import dynamic from 'next/dynamic';
 
 export default function Dashboard() {
+  const LeafletMap = useMemo(() => dynamic(
+    () => import('@/components/LeafletMap'),
+    { 
+        loading: () => <p>A map is loading</p>,
+        ssr: false
+    }
+), [])
   return (
     <div>
       <div className='flex items-center justify-center gap-9'>
@@ -34,6 +43,12 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      <section className='mt-10'>
+        <h1 className='font-bold text-5xl mb-2 p-2'>Lokasi Server:</h1>
+          <div className=' overflow-hidden shadow-lg mb-40 border'>
+              <LeafletMap />
+          </div>
+      </section>
     </div>
   )
 }
